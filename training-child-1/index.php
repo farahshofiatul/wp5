@@ -2,12 +2,10 @@
 <div class="col-sm-8 blog-main">
     
     <?php
+    $wp_query->set('posts_per_page', of_get_option('limit_post','no'));
+    $wp_query->query($wp_query->query_vars);
     if ( have_posts() ) {
-        $count = 0;
         while ( have_posts() ) : the_post();
-          $count++;
-          if($count <= of_get_option('limit_post', 'no')){
-
     ?>
     <div class="blog-post">
         <h2 class="blog-post-title"><?php the_title(); ?></h2>
@@ -15,7 +13,7 @@
         <?php the_content(); ?>
     </div>
     <?php
-          }
+          
         endwhile;
     } 
     ?>
