@@ -23,8 +23,10 @@
 <div id="sidebar-right" class="col-sm-3 col-sm-offset-1 blog-sidebar">
   <ul>
   <?php 
+  if(of_get_option('show_sidebar','no') == true){
     if ( ! dynamic_sidebar( 'sidebar-right' ) ) :
     endif; 
+  }
   ?>
   </ul>
 </div>
